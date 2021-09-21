@@ -9,11 +9,13 @@ app.use(cors())
 
 const posts = {}
 
+// unused except to test ingress-nginx config
 app.get('/posts', (req, res) => {
   res.send(posts)
 })
 
-app.post('/posts', async (req, res) => {
+// /posts/create to differentiate from query pod endpoint
+app.post('/posts/create', async (req, res) => {
   const id = randomBytes(4).toString('hex')
   const { title } = req.body
 

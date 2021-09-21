@@ -8,7 +8,8 @@ const PostCreate = () => {
     e.preventDefault()
 
     // posts.com redirects to localhost
-    await axios.post('http://posts.com/posts', { title })
+    // /posts/create to differentiate from request to query pod
+    await axios.post('http://posts.com/posts/create', { title })
 
     setTitle('')
   }
